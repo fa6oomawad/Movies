@@ -2,21 +2,23 @@ import React from 'react';
 import './movies.css';
 import OneMovie from './OneMovie.js';
 import {
-    Link,
+   Link, 
     Route
 } from 'react-router-dom';
- export default function Movies ({match}){
+ export default function Movies (props){
      return (<div>
 <div className='box'>
-    <div className='smallbox'><Link to={`${match.url}/movie1`}>1</Link></div>
-    <div className='smallbox'>2</div>
-    <div className='smallbox'>3</div>
-    <div className='smallbox'>3</div>
-    <div className='smallbox'>1</div>
-    <div className='smallbox'>2</div>
-    <div className='smallbox'>3</div>
-    <div className='smallbox'>3</div>
-    <Route  path={`${match.path}/:topicId`} component={OneMovie}/>
+    
+    
+    {console.log(props.data)}
+    {props.data.slice(0,8).map((ele)=>(
+        <div className='smallbox'>
+        <Link to="Movies/movie1">
+        <img src={`http://image.tmdb.org/t/p/w185${ele.poster_path}`} alt="movie pic"/>
+        </Link>
+        </div>
+    ))}
+    <Route  path={`Movies/:movie1`} component={OneMovie}/>
 </div>
 </div>
      

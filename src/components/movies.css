@@ -18,5 +18,10 @@
     width:200px;
     height: 240px;
     background-color: peru;
+    border:3px solid white;
     
+}
+.smallbox img {
+    height: 100%;
+    width: 100%;
 }
