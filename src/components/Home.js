@@ -1,9 +1,15 @@
 import React from 'react';
-
+import './home.css';
 export default function Home (){
     return (
         <div>
-            Hommmmmeeee 
+             
+            <div className='box'>
+            Hommmmmeeee
+            <div>
+                
+            </div>
+            </div>
         </div>
     )
 }

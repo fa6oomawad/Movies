@@ -1,0 +1,15 @@
+.box {
+    width:900px;
+    height: 500px;
+    background-color: azure;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    
+
+}
