@@ -1,11 +1,10 @@
 .box {
     width:900px;
     height: 500px;
-    background-color: azure;
+    background-color: black;
     position: absolute;
-    top:70%;
+    top:50%;
     left:50%;
-    transform: translate(-50%,-50%);
     display:flex;
     justify-content: space-between;
     align-items: flex-start;

@@ -6,7 +6,7 @@ import {
     Route
 } from 'react-router-dom';
 
- class  Movies extends Component{
+ class Movies extends Component  {
      constructor(props){
          super(props);
          this.state={
@@ -19,6 +19,7 @@ import {
 
      componentDidMount(){
         this.fetchMoviesData();
+        console.log('match',this.props.match.url)
           }
         
           fetchMoviesData(){
@@ -26,13 +27,11 @@ import {
         return fetch(encodedURI)
         .then((data)=>data.json())
         .then ((repos)=>{
-          console.log(repos.results)
           this.setState({
         data:repos.results
           }
           )
         
-          console.log(this.state.data)
         
         })
         .catch((error)=>{
@@ -47,14 +46,14 @@ import {
 <div className='box'>
     {console.log(this.state.data)}
     {this.state.data.slice(0,8).map((ele)=>(
-        <div className='smallbox'>
-        <Link to="Movies/movie1">
+        <div className='smallbox' key={ele.id}>
+        <Link to={`${this.props.match.url}/movie1`}>
         <img src={`http://image.tmdb.org/t/p/w185${ele.poster_path}`} alt="movie pic"/>
         </Link>
         </div>
     ))}
     
-    <Route path='/movie1' 
+    <Route path={`${this.props.match.path}/:topicId`}   
 render={(props)=> <OneMovie {...props} data={this.state.data}/>}/>
 </div>
 </div>
