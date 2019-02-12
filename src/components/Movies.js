@@ -10,16 +10,23 @@ import {
      constructor(props){
          super(props);
          this.state={
-             data:[]
+             data:[],
+             moviedata:{}
          }
          this.fetchMoviesData=this.fetchMoviesData.bind(this);
-
+         this.fetchOneMovieData=this.fetchOneMovieData.bind(this);
      }
 
 
      componentDidMount(){
         this.fetchMoviesData();
         console.log('match',this.props.match.url)
+          }
+
+          fetchOneMovieData(element){
+this.setState({
+    moviedata:element
+})
           }
         
           fetchMoviesData(){
@@ -28,7 +35,8 @@ import {
         .then((data)=>data.json())
         .then ((repos)=>{
           this.setState({
-        data:repos.results
+        data:repos.results,
+    
           }
           )
         
@@ -43,18 +51,18 @@ import {
      render(){
      return (
      <div>
-<div className='box'>
+<div className='boxx'>
     {console.log(this.state.data)}
     {this.state.data.slice(0,8).map((ele)=>(
         <div className='smallbox' key={ele.id}>
-        <Link to={`${this.props.match.url}/movie1`}>
+        <Link to={`${this.props.match.url}/movie1`} onClick={()=>this.fetchOneMovieData(ele)}>
         <img src={`http://image.tmdb.org/t/p/w185${ele.poster_path}`} alt="movie pic"/>
         </Link>
         </div>
-    ))}
-    
+    ))
+    }
     <Route path={`${this.props.match.path}/:topicId`}   
-render={(props)=> <OneMovie {...props} data={this.state.data}/>}/>
+render={(props)=> <OneMovie {...props} data={this.state.data} moviedata={this.state.moviedata}/>}/>
 </div>
 </div>
      

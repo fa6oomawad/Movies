@@ -4,19 +4,28 @@
 }
 
 ul {
-  background-color: rgb(199, 120, 150);
+  background-color: rgba(182, 122, 145, 0.856);
 margin-top:0;
 list-style: none;
-text-align: center;
+text-align: left;
 
 }
-li{
+li  {
   margin-right: 20px;
 display: inline-block;
 margin:20px;
 margin-bottom: 20px;
 
-color: wheat !important;
+}
 
+.link {
+  text-decoration: none;
+  color:white;
+  font-family: sans-serif;
+font-size:20px;
+}
+
+.link:hover {
+  color: black;
 
 }

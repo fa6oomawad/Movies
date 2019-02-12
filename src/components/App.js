@@ -16,9 +16,9 @@ class App extends Component {
       <BrowserRouter>
 <div className="App">
        <ul>
-         <li><Link to='/'>Home</Link></li>
-         <li><Link to='/Movies'>Movies</Link></li>
-         <li><Link to='/TvShowes'>Tv Showes</Link></li>
+         <li><Link className="link" to='/'>Home</Link></li>
+         <li><Link className="link" to='/Movies'>Movies</Link></li>
+         <li><Link className="link" to='/TvShowes'>Tv Showes</Link></li>
        </ul>
 <hr />
 
