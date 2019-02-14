@@ -19,9 +19,12 @@ class App extends Component {
          <li><Link className="link" to='/TvShowes'>Tv Showes</Link></li>
        </ul>
 <hr />
-<Route path='/' component={Movies}/>
-<Route path='/Movies' component ={Movies}/>
+
+<Route  path='/Movies' component ={Movies}/>
 <Route path='/TvShowes' component={TvShowes}/>
+
+    
+
 
 
 

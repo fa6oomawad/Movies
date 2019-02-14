@@ -3,8 +3,8 @@ import './movies.css';
 import OneMovie from './OneMovie.js';
 import {
    Link, 
-    Route
-} from 'react-router-dom';
+   Route
+    } from 'react-router-dom';
 
  class Movies extends Component  {
      constructor(props){
@@ -52,17 +52,21 @@ this.setState({
      return (
      <div>
 <div className='boxx'>
-    {console.log(this.state.data)}
-    {this.state.data.map((ele)=>(
+{
+    !this.props.match.params.topicId ?
+    this.state.data.map((ele)=>(
         <div className='smallbox' key={ele.id}>
         <Link to={`${this.props.match.url}/movie1`} onClick={()=>this.fetchOneMovieData(ele)}>
         <img src={`http://image.tmdb.org/t/p/w185${ele.poster_path}`} alt="movie pic"/>
         </Link>
         </div>
-    ))
-    }
-    <Route path={`${this.props.match.path}/:topicId`}   
+    )) : null
+  } 
+    
+
+    <Route  path={`${this.props.match.path}/:topicId`}   
 render={(props)=> <OneMovie {...props} data={this.state.data} moviedata={this.state.moviedata}/>}/>
+    
 </div>
 </div>
      

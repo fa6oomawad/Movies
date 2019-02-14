@@ -2,10 +2,10 @@ import React from 'react';
 import  "./onemovie.css";
 export default function OneMovie (props){
     return (
-       <div className="box">
+       <div className="box1">
        
        <div class="movieImg">
-<img src={`http://image.tmdb.org/t/p/w185${props.moviedata.poster_path}`} />
+<img src={`http://image.tmdb.org/t/p/w185${props.moviedata.poster_path}`}  alt="movie poster"/>
        </div>
        <div class="titlee">
        <h2>{props.moviedata.title}</h2>
