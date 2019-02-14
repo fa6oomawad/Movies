@@ -53,7 +53,7 @@ this.setState({
      <div>
 <div className='boxx'>
     {console.log(this.state.data)}
-    {this.state.data.slice(0,8).map((ele)=>(
+    {this.state.data.map((ele)=>(
         <div className='smallbox' key={ele.id}>
         <Link to={`${this.props.match.url}/movie1`} onClick={()=>this.fetchOneMovieData(ele)}>
         <img src={`http://image.tmdb.org/t/p/w185${ele.poster_path}`} alt="movie pic"/>

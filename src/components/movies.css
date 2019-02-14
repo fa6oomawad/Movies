@@ -11,6 +11,8 @@
     align-items: flex-start;
     flex-wrap: wrap;
     border: 4px solid blue;
+    overflow-y:auto;
+
 
 }
 
@@ -21,8 +23,14 @@
     background-color: peru;
     border:2px solid white;
     
+    
 }
 .smallbox img {
     height: 100%;
     width: 100%;
+}
+
+.smallbox:hover {
+  
+    transform: scale(1.5);
 }
