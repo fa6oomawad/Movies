@@ -4,14 +4,14 @@ export default function OneMovie (props){
     return (
        <div className="box1">
        
-       <div class="movieImg">
+       <div className="movieImg">
 <img src={`http://image.tmdb.org/t/p/w185${props.moviedata.poster_path}`}  alt="movie poster"/>
        </div>
-       <div class="titlee">
+       <div className="titlee">
        <h2>{props.moviedata.title}</h2>
        
        </div>
-       <div class="info">
+       <div className="info">
        <h3> Overview :</h3>
 <p> 
     {props.moviedata.overview}
@@ -34,7 +34,6 @@ export default function OneMovie (props){
        <div>
 
        </div>
-       
        
        </div> 
     )
