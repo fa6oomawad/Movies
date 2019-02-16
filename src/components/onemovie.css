@@ -10,6 +10,11 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border:3px solid white;
+    
     
 
 }
@@ -30,8 +35,8 @@
     width:100%;
 }
 .titlee h2 {
-    border-bottom:5px solid rgba(43, 43, 43, 0.74);
-
+    border-bottom:5px solid rgba(146, 146, 146, 0.74);
+color:white;
 }
 .info {
     width:500px;
@@ -40,7 +45,9 @@
     position: absolute;
     top:15%;
     left:40%;
-    font-family: "Times New Roman";
+    font-family: "Helvetica";
+    letter-spacing: 1px;
+    color:white;
    
 }
 

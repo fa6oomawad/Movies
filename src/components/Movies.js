@@ -52,12 +52,13 @@ this.setState({
      render(){
      return (
      <div>
-         {}
+         <h1 class='bigtitle'>Popular Movies</h1>
+
 <div className='boxx'>
    { 
        this.props.location.pathname == '/Movies'?
        this.state.data.map((ele)=>(
-        <div className='smallbox' key={ele.id}>
+        <div className='smallbox' key={ele.id} > 
         <Link to={`${this.props.match.url}/${ele.id}`} onClick={()=>this.fetchOneMovieData(ele)}>
         <img src={`http://image.tmdb.org/t/p/w185${ele.poster_path}`} alt="movie pic"/>
         </Link>

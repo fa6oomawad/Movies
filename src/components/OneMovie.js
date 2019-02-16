@@ -2,7 +2,7 @@ import React from 'react';
 import  "./onemovie.css";
 export default function OneMovie (props){
     return (
-       <div className="box1">
+       <div className="box1" style={ {backgroundImage:`linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("http://image.tmdb.org/t/p/w185${props.moviedata.backdrop_path}")`}}>
        
        <div className="movieImg">
 <img src={`http://image.tmdb.org/t/p/w185${props.moviedata.poster_path}`}  alt="movie poster"/>
