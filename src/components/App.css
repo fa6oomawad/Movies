@@ -3,17 +3,18 @@
  height: 100vh;
 }
 
-ul {
+.mainList {
   background-color: rgba(182, 122, 145, 0.856);
 margin-top:0;
 list-style: none;
 text-align: left;
 
 }
-li  {
+.mainItem  {
   margin-right: 20px;
 display: inline-block;
 margin:20px;
+
 margin-bottom: 20px;
 
 }
@@ -29,3 +30,16 @@ font-size:20px;
   color: black;
 
 }
+
+#blabla {
+  display: none;
+  height:10px;
+  position: absolute;
+  top:40px;
+}
+
+#blabla li {
+  display:inline-block;
+  margin-left:10px;
+}
+

@@ -52,11 +52,11 @@ this.setState({
      render(){
      return (
      <div>
-         <h1 class='bigtitle'>Popular Movies</h1>
+         <h1 className='bigtitle'>Popular Movies</h1>
 
 <div className='boxx'>
    { 
-       this.props.location.pathname == '/Movies'?
+       this.props.location.pathname === '/Movies'?
        this.state.data.map((ele)=>(
         <div className='smallbox' key={ele.id} > 
         <Link to={`${this.props.match.url}/${ele.id}`} onClick={()=>this.fetchOneMovieData(ele)}>
