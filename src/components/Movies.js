@@ -12,7 +12,8 @@ import {
          super(props);
          this.state={
              data:[],
-             moviedata:{}
+             moviedata:{},
+             loading:true
          }
          this.fetchMoviesData=this.fetchMoviesData.bind(this);
          this.fetchOneMovieData=this.fetchOneMovieData.bind(this);
@@ -21,7 +22,10 @@ import {
 
      componentDidMount(){
         this.fetchMoviesData();
-        console.log('match',this.props.match.url)
+          }
+          componentDidUpdate(){
+            this.fetchMoviesData();
+
           }
 
           fetchOneMovieData(element){
@@ -31,12 +35,13 @@ this.setState({
           }
         
           fetchMoviesData(){
-        const encodedURI=encodeURI('https://api.themoviedb.org/3/discover/movie?api_key=9f9325b5853f1d7c7965f643d2cf0d51&primary_release_date.gte=2019-01-11&primary_release_date.lte=2019-2-10&total_results=8');
+        const encodedURI=encodeURI(`https://api.themoviedb.org/3/movie/${this.props.kind}?api_key=9f9325b5853f1d7c7965f643d2cf0d51&language=en-US&page=1`);
         return fetch(encodedURI)
         .then((data)=>data.json())
         .then ((repos)=>{
           this.setState({
         data:repos.results,
+        loading:false
     
           }
           )
@@ -52,10 +57,11 @@ this.setState({
      render(){
      return (
      <div>
-         <h1 className='bigtitle'>Popular Movies</h1>
+         <h1 className='bigtitle'>{this.props.kind} Movies</h1>
 
 <div className='boxx'>
    { 
+       this.loading === true ? <h1>waiit loading...</h1>:
        this.props.location.pathname === '/Movies'?
        this.state.data.map((ele)=>(
         <div className='smallbox' key={ele.id} > 
@@ -76,7 +82,6 @@ render={(props)=> <OneMovie {...props} data={this.state.data} moviedata={this.st
 
    
 </div>
-{console.log(this.props.location.pathname)}
 </div>
 
      

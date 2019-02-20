@@ -12,18 +12,28 @@ import {
 class App extends Component {
 constructor(props){
   super(props);
+  this.state={
+    kindofmovie:'top_rated'
+  }
   this.displayHiddenBar=this.displayHiddenBar.bind(this);
-  this.hidenBar=this.hidenBar.bind(this);
+  this.hidenBar=this.hideBar.bind(this);
 }
 
 displayHiddenBar(){
   var list= document.getElementById('blabla');
-  console.log(list);
   list.style.display='block';
 }
-hidenBar(){
+hideBar(){
   var list1= document.getElementById('blabla');
   list1.style.display='none';
+}
+
+getKindOfMovies (e){
+var kind=e.currentTarget.textContent;
+this.setState({
+  kindofmovie:kind,
+})
+console.log('de al-state>>',this.state.kindofmovie);
 }
 
   render() {
@@ -32,13 +42,12 @@ hidenBar(){
       <BrowserRouter>
 <div className="App">
        <ul className='mainList'>
-         <li className='mainItem' onMouseOver={()=>this.displayHiddenBar()} onMouseOut={()=>this.hidenBar()} ><Link className="link" to='/Movies'>Movies</Link>
+         <li className='mainItem' onMouseOver={()=>this.displayHiddenBar()} onMouseOut={()=>this.hideBar()} ><Link className="link" to='/Movies'>Movies</Link>
        
          <ul className='hiddenBar' id='blabla'>
-           <li>Popular</li>
-           <li>Top rated</li>
-           <li>Upcoming</li>
-
+           <li onClick={this.getKindOfMovies.bind(this)} >popular</li>
+           <li onClick={this.getKindOfMovies.bind(this)}>top_rated</li>
+           <li onClick={this.getKindOfMovies.bind(this)}>upcoming</li>
          </ul>
          </li>
          <li className='mainItem'><Link className="link" to='/TvShowes'>Tv Showes</Link>
@@ -48,7 +57,7 @@ hidenBar(){
        </ul>
 <hr />
 
-<Route  path='/Movies' component ={Movies}/>
+<Route  path='/Movies' render={(props)=> <Movies {...props} kind={this.state.kindofmovie}/>}/>
 <Route path='/TvShowes' component={TvShowes}/>
 
     

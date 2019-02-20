@@ -41,5 +41,11 @@ font-size:20px;
 #blabla li {
   display:inline-block;
   margin-left:10px;
+  color:white;
+  cursor: pointer;
+}
+
+#blabla li:hover{
+  color:black;
 }
 
