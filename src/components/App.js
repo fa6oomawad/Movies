@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Movies from './Movies';
 import TvShowes from './TvShowes';
+import Search from './Search';
 import {
   BrowserRouter,
   Route,
@@ -13,7 +14,8 @@ class App extends Component {
 constructor(props){
   super(props);
   this.state={
-    kindofmovie:'top_rated'
+    kindofmovie:'top_rated',
+    searchResult:''
   }
   this.displayHiddenBar=this.displayHiddenBar.bind(this);
   this.hidenBar=this.hideBar.bind(this);
@@ -36,6 +38,13 @@ this.setState({
 console.log('de al-state>>',this.state.kindofmovie);
 }
 
+findSearchedMovie(e){
+ this.setState({
+   searchResult:e.currentTarget.value
+ })
+ console.log("funnn",e.currentTarget.value);
+}
+
   render() {
 
     return (
@@ -54,12 +63,18 @@ console.log('de al-state>>',this.state.kindofmovie);
          
          
          </li>
+        
+        <input type='text'  placeholder='search..' onChange={this.findSearchedMovie.bind(this)} />
+<Link to='/SearchResult' >Search</Link>      
+         
+         
        </ul>
+       
 <hr />
 
 <Route  path='/Movies' render={(props)=> <Movies {...props} kind={this.state.kindofmovie}/>}/>
 <Route path='/TvShowes' component={TvShowes}/>
-
+<Route path='/SearchResult' render={(props)=> <Search {...props} search={this.state.searchResult}/>}/>
     
 
 
