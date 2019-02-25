@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Movies from './Movies';
-import TvShowes from './TvShowes';
 import Search from './Search';
 import {
   BrowserRouter,
@@ -15,7 +14,8 @@ constructor(props){
   super(props);
   this.state={
     kindofmovie:'top_rated',
-    searchResult:''
+    searchResult:'',
+    displayname:'Top Rated'
   }
   this.displayHiddenBar=this.displayHiddenBar.bind(this);
   this.hidenBar=this.hideBar.bind(this);
@@ -31,11 +31,14 @@ hideBar(){
 }
 
 getKindOfMovies (e){
-var kind=e.currentTarget.textContent;
+//var kind=e.currentTarget.textContent;
+var kind=e.target.id;
+var display=e.currentTarget.textContent;
 this.setState({
   kindofmovie:kind,
+  displayname:display
 })
-console.log('de al-state>>',this.state.kindofmovie);
+console.log('de al-state>>',e.target.id);
 }
 
 findSearchedMovie(e){
@@ -54,29 +57,27 @@ findSearchedMovie(e){
          <li className='mainItem' onMouseOver={()=>this.displayHiddenBar()} onMouseOut={()=>this.hideBar()} ><Link className="link" to='/Movies'>Movies</Link>
        
          <ul className='hiddenBar' id='blabla'>
-           <li onClick={this.getKindOfMovies.bind(this)} >popular</li>
-           <li onClick={this.getKindOfMovies.bind(this)}>top_rated</li>
-           <li onClick={this.getKindOfMovies.bind(this)}>upcoming</li>
+           <li onClick={this.getKindOfMovies.bind(this)} id="popular">Popular</li>
+           <li onClick={this.getKindOfMovies.bind(this)}id="top_rated">Top Rated</li>
+           <li onClick={this.getKindOfMovies.bind(this)} id="upcoming">Upcoming</li>
          </ul>
          </li>
-         <li className='mainItem'><Link className="link" to='/TvShowes'>Tv Showes</Link>
          
-         
-         </li>
+         <Link to='/SearchResult' > <div className="icon">
+         <button className='searchIcon'></button>  
+<div className="stick"></div>
+</div></Link>
         
-        <input type='text'  placeholder='search..' onChange={this.findSearchedMovie.bind(this)} />
-<Link to='/SearchResult' >Search</Link>      
+        <input className='searchbar' type='text'  placeholder='search..' onChange={this.findSearchedMovie.bind(this)} />
          
          
        </ul>
        
 <hr />
 
-<Route  path='/Movies' render={(props)=> <Movies {...props} kind={this.state.kindofmovie}/>}/>
-<Route path='/TvShowes' component={TvShowes}/>
+<Route  path='/Movies' render={(props)=> <Movies {...props} kind={this.state.kindofmovie} displayname={this.state.displayname}/>}/>
 <Route path='/SearchResult' render={(props)=> <Search {...props} search={this.state.searchResult}/>}/>
     
-
 
 
 

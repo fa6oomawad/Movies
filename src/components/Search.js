@@ -51,13 +51,15 @@ render(){
 <div>
 <div className='boxx'>
 {
-   
+    
+       this.props.location.pathname === '/SearchResult'?
     this.state.data.map((ele)=>(
         <div className='smallbox' key={ele.id} > 
         <Link to={`${this.props.match.url}/${ele.id}`} onClick={()=>this.fetchOneMovieData(ele)}>
         <img src={`http://image.tmdb.org/t/p/w185${ele.poster_path}`} alt="movie pic"/>
         </Link>
-        </div> )) }
+        </div> )): null
+     }
 <Route path={`${this.props.match.path}/:topicId`}  render={(props)=> <OneMovie {...props} data={this.state.data} moviedata={this.state.moviedata} />}
 />
         </div>

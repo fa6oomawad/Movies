@@ -1,5 +1,5 @@
 .App {
-  background-color: rgb(61, 39, 43);
+  background-color: rgba(139, 136, 136, 0.692);
   position:fixed;
     top:0;
     width:100%;
@@ -9,10 +9,11 @@
 }
 
 .mainList {
-  background-color: rgba(182, 122, 145, 0.856);
+  background-color: rgba(0, 0, 0, 0.856);
 margin-top:0;
 list-style: none;
 text-align: left;
+
 
 }
 .mainItem  {
@@ -24,6 +25,7 @@ margin-bottom: 20px;
 
 }
 
+
 .link {
   text-decoration: none;
   color:white;
@@ -32,7 +34,7 @@ font-size:20px;
 }
 
 .link:hover {
-  color: black;
+  color: rgb(228, 0, 0);
 
 }
 
@@ -51,6 +53,48 @@ font-size:20px;
 }
 
 #blabla li:hover{
-  color:black;
+  color:red;
+}
+.icon{
+  display: inline;
+  cursor: pointer;
+  
+}
+.searchIcon{
+  float:right;
+  margin-top:19px;
+  margin-right:15px;
+  border:3px solid white;
+  background: none;
+  border-radius:50%;
+  width:20px;
+  height: 20px;
+  
+
+}
+.stick{
+  width:13px;
+  height: 3px;
+position: absolute; 
+  top:6%;
+  right:8px;
+   background: white;
+   transform: rotate(45deg)
+}
+.searchbar {
+  width:240px;
+  height: 30px;
+  outline: 0;
+  border:none;
+  border-radius:40px;
+  background-color: rgba(255, 255, 255, 0.856);
+  float: right;
+  margin:16px;
+  margin-right:9px;
+  color:rgb(59, 56, 56);
+  text-align: center;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 15px;
 }
 

@@ -10,28 +10,32 @@
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
-    
+    margin-top:20px;
 
 
 }
 .bigtitle {
-    color:white;
+    color:black;
     display: block;
  text-align: center;
+ cursor:pointer;
+ margin:15px;
 }
 
 .smallbox {
     margin-top:2px;
     width:200px;
     height: 240px;
-    background-color: peru;
-    border:2px solid white;
+    border:2px solid rgba(255, 255, 255, 0);
+    box-shadow: -2px 0px 12px 1px #000000;
+border-radius: 10px;
     
     
 }
 .smallbox img {
     height: 100%;
     width: 100%;
+    border-radius: 10px;
 }
 
 .smallbox:hover {

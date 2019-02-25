@@ -57,7 +57,9 @@ this.setState({
      render(){
      return (
      <div>
-         <h1 className='bigtitle'>{this.props.kind} Movies</h1>
+      { this.props.location.pathname === '/Movies'?
+         <h1 className='bigtitle'>{this.props.displayname} Movies</h1>:null
+        }
 
 <div className='boxx'>
    { 
