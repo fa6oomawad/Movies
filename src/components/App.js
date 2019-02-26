@@ -51,7 +51,7 @@ findSearchedMovie(e){
   render() {
 
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL} >
 <div className="App">
        <ul className='mainList'>
          <li className='mainItem' onMouseOver={()=>this.displayHiddenBar()} onMouseOut={()=>this.hideBar()} ><Link className="link" to='/Movies'>Movies</Link>
@@ -74,9 +74,10 @@ findSearchedMovie(e){
        </ul>
        
 <hr />
+<Route  path='/' render={(routerProps)=> <Movies routerProps={routerProps} kind={this.state.kindofmovie} displayname={this.state.displayname}/>}/>
 
-<Route  path='/Movies' render={(props)=> <Movies {...props} kind={this.state.kindofmovie} displayname={this.state.displayname}/>}/>
-<Route path='/SearchResult' render={(props)=> <Search {...props} search={this.state.searchResult}/>}/>
+<Route  path='/Movies' render={(routerProps)=> <Movies routerProps={routerProps} kind={this.state.kindofmovie} displayname={this.state.displayname}/>}/>
+<Route path='/SearchResult' render={(routerProps)=> <Search routerProps={routerProps} search={this.state.searchResult}/>}/>
     
 
 
